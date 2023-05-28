@@ -3,6 +3,10 @@
 #include "libc.h"
 
 #ifndef START
+// defines for c-source crt_arch.h
+#define START_FUNC _dlstart
+#define START_FUNC_C _dlstart_c
+// defines for inline-asm crt_arch.h
 #define START "_dlstart"
 #endif
 
@@ -20,7 +24,7 @@
 
 extern hidden void __dls2(unsigned char *base, size_t *sp);
 
-hidden void _dlstart_c(size_t *sp, size_t *dynv)
+hidden void _dlstart_c(size_t *sp, size_t const *dynv)
 {
 	size_t i, aux[AUX_CNT], dyn[DYN_CNT];
 	size_t *rel, rel_size, base;
