@@ -1,11 +1,11 @@
 #include <wctype.h>
 
-static const unsigned char tab[];
+//static const unsigned char tab[];
 
-static const unsigned char rulebases[512];
-static const int rules[];
+//static const unsigned char rulebases[512];
+//static const int rules[];
 
-static const unsigned char exceptions[][2];
+//static const unsigned char exceptions[][2];
 
 #include "casemap.h"
 
