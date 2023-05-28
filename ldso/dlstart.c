@@ -3,6 +3,10 @@
 #include "libc.h"
 
 #ifndef START
+// defines for c-source crt_arch.h
+#define START_FUNC _dlstart
+#define START_FUNC_C _dlstart_c
+// defines for inline-asm crt_arch.h
 #define START "_dlstart"
 #endif
 
