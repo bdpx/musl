@@ -7,6 +7,12 @@
 #include <endian.h>
 #include "fp_arch.h"
 
+#if defined(__POSTRISC__)
+    #define __UNION_VOLATILE volatile // fix for some Postrisc 128-bit field issue
+#else
+    #define __UNION_VOLATILE
+#endif
+
 #if LDBL_MANT_DIG == 53 && LDBL_MAX_EXP == 1024
 #elif LDBL_MANT_DIG == 64 && LDBL_MAX_EXP == 16384 && __BYTE_ORDER == __LITTLE_ENDIAN
 union ldshape {
@@ -29,14 +35,14 @@ union ldshape {
 };
 #elif LDBL_MANT_DIG == 113 && LDBL_MAX_EXP == 16384 && __BYTE_ORDER == __LITTLE_ENDIAN
 union ldshape {
-	long double f;
-	struct {
+	__UNION_VOLATILE long double f;
+	__UNION_VOLATILE struct {
 		uint64_t lo;
 		uint32_t mid;
 		uint16_t top;
 		uint16_t se;
 	} i;
-	struct {
+	__UNION_VOLATILE struct {
 		uint64_t lo;
 		uint64_t hi;
 	} i2;
