@@ -18,6 +18,8 @@
 	*(fp) = static_func_ptr; } while(0)
 #endif
 
+extern hidden void __dls2(unsigned char *base, size_t *sp);
+
 hidden void _dlstart_c(size_t *sp, size_t *dynv)
 {
 	size_t i, aux[AUX_CNT], dyn[DYN_CNT];
