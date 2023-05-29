@@ -241,6 +241,8 @@ printf "checking for C compiler... "
 trycc ${CROSS_COMPILE}gcc
 trycc ${CROSS_COMPILE}c99
 trycc ${CROSS_COMPILE}cc
+printf "\ntrycc $CLANG_PATH/clang\n"
+trycc $CLANG_PATH/clang
 printf "%s\n" "$CC"
 test -n "$CC" || { echo "$0: cannot find a C compiler" ; exit 1 ; }
 
@@ -340,6 +342,7 @@ riscv64*) ARCH=riscv64 ;;
 riscv32*) ARCH=riscv32 ;;
 sh[1-9bel-]*|sh|superh*) ARCH=sh ;;
 s390x*) ARCH=s390x ;;
+postrisc*) ARCH=postrisc ;;
 unknown) fail "$0: unable to detect target arch; try $0 --target=..." ;;
 *) fail "$0: unknown or unsupported target \"$target\"" ;;
 esac
