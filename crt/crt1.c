@@ -1,6 +1,9 @@
 #include <features.h>
 #include "libc.h"
 
+#define START_FUNC _start
+#define START_FUNC_C _start_c
+
 #define START "_start"
 
 #include "crt_arch.h"
@@ -11,7 +14,7 @@ weak void _fini();
 int __libc_start_main(int (*)(), int, char **,
 	void (*)(), void(*)(), void(*)());
 
-void _start_c(long *p)
+void _start_c(long *p, size_t const *)
 {
 	int argc = p[0];
 	char **argv = (void *)(p+1);
