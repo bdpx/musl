@@ -77,7 +77,7 @@ typedef Elf32_Phdr Phdr;
 typedef Elf64_Phdr Phdr;
 #endif
 
-extern weak hidden void _DYNAMIC(void);
+extern weak hidden const size_t _DYNAMIC[];
 
 static void static_init_tls(size_t *aux)
 {

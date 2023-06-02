@@ -3,6 +3,8 @@
 #include "libc.h"
 
 #ifndef START
+#define START_FUNC _dlstart
+#define START_FUNC_C _dlstart_c
 #define START "_dlstart"
 #endif
 
