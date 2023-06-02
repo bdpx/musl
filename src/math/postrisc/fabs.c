@@ -1,0 +1,7 @@
+#include <math.h>
+#include <stdint.h>
+
+double fabs(double x)
+{
+	return __builtin_fabs(x);
+}
